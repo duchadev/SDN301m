@@ -8,10 +8,8 @@ const port = 3000
 const bookRouter = require('./routers/booksRouter');
 const authorRouter = require('./routers/authorRouter');
 const genresRouter = require('./routers/genresRouter');
-	
 
-
-const app = express();
+const app = express();      
 app.use('/books', bookRouter);
 app.use('/author', authorRouter);
 app.use('/genres', genresRouter);
