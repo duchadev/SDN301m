@@ -9,7 +9,18 @@ const bookRouter = require('./routers/booksRouter');
 const authorRouter = require('./routers/authorRouter');
 const genresRouter = require('./routers/genresRouter');
 
-const app = express();      
+const app = express();  
+	const mongoose = require('mongoose');
+	
+	const Dishes = require('./model/dishes');
+	
+	const url = 'mongodb://localhost:27017/conFusion';
+	const connect = mongoose.connect(url);
+	
+	connect.then((db) => {
+	    console.log("Connected correctly to server");
+	}, (err) => { console.log(err); });
+
 app.use('/books', bookRouter);
 app.use('/author', authorRouter);
 app.use('/genres', genresRouter);
