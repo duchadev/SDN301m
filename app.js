@@ -8,11 +8,11 @@ const port = 3000
 const bookRouter = require('./routers/booksRouter');
 const authorRouter = require('./routers/authorRouter');
 const genresRouter = require('./routers/genresRouter');
-
+const dishRouter = require('./routers/dishRouter.js');
 const app = express();  
 	const mongoose = require('mongoose');
 	
-	const Dishes = require('./model/dishes');
+	const Dishes = require('./model/dishes.js');
 	
 	const url = 'mongodb://localhost:27017/conFusion';
 	const connect = mongoose.connect(url);
@@ -24,6 +24,7 @@ const app = express();
 app.use('/books', bookRouter);
 app.use('/author', authorRouter);
 app.use('/genres', genresRouter);
+app.use('/dishes', dishRouter);
 
 app.use(bodyParser.json())
 //==============================================================
